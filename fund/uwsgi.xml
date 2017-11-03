@@ -1,0 +1,19 @@
+<uwsgi>
+  <socket>127.0.0.1:8010</socket>
+  <listen>100</listen>
+  <master>true</master>
+  <workers>8</workers>
+  <module>wsgi</module>
+  <pythonpath>/root/workspace/fund-backend/FundPJ/fund</pythonpath>
+  <profiler>true</profiler>
+  <memory-report>true</memory-report>
+  <enable-threads>true</enable-threads>
+  <logdate>true</logdate>
+  <buffer-size>65535</buffer-size>
+  <post-buffering>1</post-buffering>
+  <limit-as>6048</limit-as>
+  <daemonize>/root/workspace/fund-backend/FundPJ/fund/log/uwsgi.log</daemonize>
+  <reload-on-as>1200</reload-on-as>
+  <!-- 如果物理内存超过: 750M, 则重新加载进程 -->
+  <reload-on-rss>1024</reload-on-rss>
+</uwsgi>
