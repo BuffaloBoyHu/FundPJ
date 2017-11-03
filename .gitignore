@@ -1,3 +1,4 @@
 fund/.idea/
 .idea/
 .gitignore
+*.pyc

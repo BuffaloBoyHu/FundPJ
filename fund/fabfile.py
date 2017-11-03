@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 import os
 
 from fabric.api import cd, hosts, run
