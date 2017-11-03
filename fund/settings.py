@@ -24,7 +24,7 @@ SECRET_KEY = '^2+!9fpolym4_tn)axs23fw)u81-0wi2veuri^+n%tc*&5ant%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['47.94.0.190', '127.0.0.1', 'hushaoye.top']
 
 # Application definition
 
