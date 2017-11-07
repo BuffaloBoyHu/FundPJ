@@ -4,20 +4,20 @@ import os
 from fabric.api import cd, hosts, run
 from fabric.operations import local
 from fabric.state import env
+from fabric.colors import green
 
 
-@hosts('47.94.0.190')
+@hosts('root@47.94.0.190')
 def exexute_deploy():
-    if env.ssh_config_path and os.path.isfile(os.path.expanduser(env.ssh_config_path)):
-        env.use_ssh_config = True
-    else:
-        env.user = 'root'
-        env.password = '8756117hu'
 
+    print green("=====================")
     code_cdir = '/root/workspace/fund-backend/FundPJ/fund'
     python_path = '/root/workspace/fundenv/bin/python'
 
+    run('pwd')
+
     with cd(code_cdir):
+        run('pwd')
         # run('git reset --hard')
         run('git pull origin master')
 
