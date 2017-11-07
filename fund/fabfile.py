@@ -17,8 +17,8 @@ def exexute_deploy():
     run('pwd')
 
     with cd(code_cdir):
-        run('pwd')
-        # run('git reset --hard')
+        run('%s install -r requirements.txt' % python_path)
+        run('git reset --hard')
         run('git pull origin master')
 
         run('%s manage.py makemigrations' % python_path)
