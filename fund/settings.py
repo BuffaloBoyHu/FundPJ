@@ -42,6 +42,11 @@ custom_apps = [
     'api',
 ]
 
+third_libs = [
+    'djcelery',
+]
+
+INSTALLED_APPS += third_libs
 INSTALLED_APPS += custom_apps
 
 MIDDLEWARE = [
@@ -125,3 +130,5 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
