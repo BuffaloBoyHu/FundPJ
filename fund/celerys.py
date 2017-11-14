@@ -4,10 +4,7 @@ from __future__ import absolute_import, unicode_literals
 from celery import Celery
 import os
 
-# 获取当前文件夹名，即为该Django项目的项目名
-project_name = os.path.split(os.path.abspath('.'))[-1]
-
-app = Celery(project_name)
+app = Celery('celerys')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
