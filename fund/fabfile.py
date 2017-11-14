@@ -17,7 +17,7 @@ def excute_deploy():
     code_cdir = '/root/workspace/fund-backend/FundPJ/fund'
     python_path = '/root/workspace/fundenv/bin/python'
     pip_path = '/root/workspace/fundenv/bin/pip'
-    pid_path = '/root/workspace/fund-backend/FundPJ/fund/fund.pid'
+    pid_path = 'fund.pid'
 
     with cd(code_cdir):
         run('rm *.pyc')  # 删除已经生成的编译文件
@@ -29,10 +29,9 @@ def excute_deploy():
         run('%s manage.py migrate' % python_path)
 
         # 重新启动项目
-        run('service nginx stop')
-        run('uwsgi --stop %s' % pid_path)
         run('service nginx restart')
-        run('uwsgi --ini uwsgi.ini')
+        run('uwsgi --reload %s' % pid_path)
+
 
 
 @hosts('root@47.94.0.190')
