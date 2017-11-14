@@ -134,9 +134,9 @@ STATIC_URL = '/static/'
 
 ####################### celery config ######################################
 # 中间人
-CELERY_BROKER_URL = 'redis://redis@47.94.0.190:6379/0'
+CELERY_BROKER_URL = 'redis://buffalo@127.0.0.1:6379/0'
 # celery 结果返回，用于跟踪结果
-CELERY_RESULT_BACKEND = 'redis://redis@47.94.0.190:6379/0'
+CELERY_RESULT_BACKEND = 'redis://buffalo@127.0.0.1:6379/0'
 # celery 内容等消息的格式设置
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
