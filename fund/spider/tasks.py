@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from celery import app
+from celerys import app
 import time
 
 
