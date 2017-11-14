@@ -4,11 +4,9 @@ from __future__ import absolute_import, unicode_literals
 from celery import Celery
 import os
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
+
 app = Celery('celerys')
-
-settings_path = os.path.abspath('.')
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "%s.settings" % settings_path)
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
