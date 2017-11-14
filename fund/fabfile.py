@@ -17,7 +17,7 @@ def excute_deploy():
     code_cdir = '/root/workspace/fund-backend/FundPJ/fund'
     python_path = '/root/workspace/fundenv/bin/python'
     pip_path = '/root/workspace/fundenv/bin/pip'
-    pid_path = 'fund.pid'
+    pid_path = '/root/workspace/fund-backend/FundPJ/fund/fund.pid'
 
     with cd(code_cdir):
         run('rm *.pyc')  # 删除已经生成的编译文件
