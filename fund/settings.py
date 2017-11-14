@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 custom_apps = [
     'api',
+    'spider',
 ]
 
 third_libs = [
