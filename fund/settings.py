@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for fund project.
 
@@ -131,4 +132,14 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+####################### celery config ######################################
+# 中间人
+CELERY_BROKER_URL = 'redis://redis@47.94.0.190:6379/0'
+# celery 结果返回，用于跟踪结果
+CELERY_RESULT_BACKEND = 'redis://redis@47.94.0.190:6379/0'
+# celery 内容等消息的格式设置
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+# celery 时区设置
+CELERY_TIMEZONE = TIME_ZONE
