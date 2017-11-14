@@ -30,7 +30,7 @@ def excute_deploy():
 
         # 重新启动项目
         run('service nginx restart')
-        run('uwsgi --reload %s' % pid_path)
+        run('uwsgi --ini uwsgi.ini')
 
 
 
