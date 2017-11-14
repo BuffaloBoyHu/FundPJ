@@ -15,7 +15,6 @@ def exexute_deploy():
     pip_path = '/root/workspace/fundenv/bin/pip'
 
     with cd(code_cdir):
-        run('%s uninstall *' % pip_path)
         run('%s install -r requirements.txt' % pip_path)
         run('git reset --hard')
         run('git pull origin master')

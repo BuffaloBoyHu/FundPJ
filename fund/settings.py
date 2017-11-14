@@ -44,7 +44,7 @@ custom_apps = [
 ]
 
 third_libs = [
-    
+
 ]
 
 INSTALLED_APPS += third_libs
