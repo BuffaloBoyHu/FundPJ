@@ -21,9 +21,11 @@ def excute_deploy():
     env_path = '/root/workspace'
 
     with cd(env_path):
+        run('pwd')
         run('source ./fundenv/bin/activate')
 
     with cd(code_cdir):
+        run('pwd')
         run('rm *.pyc')  # 删除已经生成的编译文件
         run('%s install -r requirements.txt' % pip_path)
         run('git reset --hard')
@@ -35,7 +37,6 @@ def excute_deploy():
         # 重新启动项目
         run('service nginx restart')
         run('uwsgi --ini uwsgi.ini')
-
 
 
 @hosts('root@47.94.0.190')
