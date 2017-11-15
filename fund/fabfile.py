@@ -18,6 +18,10 @@ def excute_deploy():
     python_path = '/root/workspace/fundenv/bin/python'
     pip_path = '/root/workspace/fundenv/bin/pip'
     pid_path = 'fund.pid'
+    env_path = '/root/workspace'
+
+    with cd(env_path):
+        run('source ./fundenv/bin/activate')
 
     with cd(code_cdir):
         run('rm *.pyc')  # 删除已经生成的编译文件
