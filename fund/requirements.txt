@@ -7,3 +7,4 @@ celery==4.1.0
 django-redis==4.4.0
 MySQL-python==1.2.5
 django-crontab==0.7.0
+supervisor==3.3.3
