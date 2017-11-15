@@ -31,8 +31,8 @@ def excute_deploy():
             run('%s manage.py migrate' % python_path)
 
             # 重新启动项目
-            run('service nginx restart')
-            run('uwsgi --ini uwsgi.ini')
+            # run('service nginx restart')
+            # run('uwsgi --ini uwsgi.ini')
 
 
 @hosts('root@47.94.0.190')
