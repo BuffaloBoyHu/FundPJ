@@ -37,9 +37,3 @@ def excute_deploy():
             # run('uwsgi --ini uwsgi.ini')
 
 
-@hosts('root@47.94.0.190')
-def excute_celery_deploy():
-    code_cdir = '/root/workspace/fund-backend/FundPJ/fund'
-
-    with cd(code_cdir):
-        run('')
