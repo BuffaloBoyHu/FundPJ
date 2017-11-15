@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import os
 
-from fabric.api import cd, hosts, run
+from fabric.api import cd, hosts, run, prefix
 from fabric.operations import local
 from fabric.state import env
 from fabric.colors import green
@@ -20,20 +20,19 @@ def excute_deploy():
     pid_path = 'fund.pid'
     env_path = '/root/workspace'
 
-    run('source /root/workspace/fundenv/bin/activate')
+    with prefix('source /root/workspace/fundenv/bin/activate'):
+        with cd(code_cdir):
+            run('rm *.pyc')  # 删除已经生成的编译文件
+            run('%s install -r requirements.txt' % pip_path)
+            run('git reset --hard')
+            run('git pull origin master')
 
-    with cd(code_cdir):
-        run('rm *.pyc')  # 删除已经生成的编译文件
-        run('%s install -r requirements.txt' % pip_path)
-        run('git reset --hard')
-        run('git pull origin master')
+            run('%s manage.py makemigrations' % python_path)
+            run('%s manage.py migrate' % python_path)
 
-        run('%s manage.py makemigrations' % python_path)
-        run('%s manage.py migrate' % python_path)
-
-        # 重新启动项目
-        run('service nginx restart')
-        run('uwsgi --ini uwsgi.ini')
+            # 重新启动项目
+            run('service nginx restart')
+            run('uwsgi --ini uwsgi.ini')
 
 
 @hosts('root@47.94.0.190')
