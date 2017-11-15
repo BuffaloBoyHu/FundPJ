@@ -20,9 +20,7 @@ def excute_deploy():
     pid_path = 'fund.pid'
     env_path = '/root/workspace'
 
-    with cd(env_path):
-        run('pwd')
-        run('source ./fundenv/bin/activate')
+    run('source /root/workspace/fundenv/bin/activate')
 
     with cd(code_cdir):
         run('rm *.pyc')  # 删除已经生成的编译文件
@@ -34,7 +32,6 @@ def excute_deploy():
         run('%s manage.py migrate' % python_path)
 
         # 重新启动项目
-        run('source /root/workspace/fundenv/bin/activate')
         run('service nginx restart')
         run('uwsgi --ini uwsgi.ini')
 
