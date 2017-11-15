@@ -133,7 +133,7 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-####################### celery config ######################################
+####################### celery config 加了命名空间celery ######################################
 # 中间人
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 # celery 结果返回，用于跟踪结果
@@ -144,3 +144,13 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 # celery 时区设置
 CELERY_TIMEZONE = TIME_ZONE
+# worker 并发数
+CELERY_CELERYD_CONCURRENCY = 4
+# 每次取任务的数量
+CELERY_CELERYD_PREFETCH_MULTIPLIEF = 10
+# 每个worker执行多少次任务之后就销毁，防止内存泄漏。
+CELERY_CELERYD_MAX_TASKS_PER_CHILD = 64
+# 防止死锁
+CELERY_CELERYD_FORCE_EXECV = True
+# 任务发出后，经过一段时间还没收到acknowledge，就讲任务重新交给其他worker执行
+CELERY_CELERY_DISABLE_RATE_LIMITS = True
